@@ -34,6 +34,7 @@ export default function Profile(props) {
   const [followings, setFollowings] = useState([])
   
   const [editProfil, setEditProfil] = useState(false)
+
   const [bioData, setBioData] = useState('')
   const [firstNameData, setFirstNameData] = useState('')
 
@@ -95,22 +96,7 @@ export default function Profile(props) {
         });
   }
 
-  // route changer bio
-  const handleBio = () => {
-    fetch(`https://twitter-back-gamma.vercel.app/users/bio`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        token: currentUser.token,
-        bio : bioData,
-      }),
-    }).then(() => {
-      dispatch(updateTweet())
-      setEditProfil(!editProfil)
-    });
-}
-
-// route pour changer fistname 
+// route pour changer fistname et bio
   const handleFirstname = () => {
     if(firstNameData.length > 0){
       fetch(`https://twitter-back-gamma.vercel.app/users/firstname`, {
@@ -132,7 +118,19 @@ export default function Profile(props) {
         setEditProfil(!editProfil)
       });
     }
-
+    if(bioData.length > 0){
+      fetch(`https://twitter-back-gamma.vercel.app/users/bio`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          token: currentUser.token,
+          bio : bioData,
+        }),
+      }).then(() => {
+        dispatch(updateTweet())
+        setEditProfil(!editProfil)
+      });
+    }
 }
 
   let followersMap = followers?.map((e,i) => {
@@ -216,7 +214,7 @@ export default function Profile(props) {
             ></textarea>
               <button
               className=" text-[#5dbbfe] mt-6 border-2 w-20 justify-center font-bold border-[#48b2fe] ml-4 text-base rounded-3xl h-1/4 px-2 py-2 text-medium cursor-pointer transition-colors duration-300 ease-in-out hover:shadow-xl flex items-center"
-              onClick={() => handleBio()}
+              onClick={() => handleFirstname()}
              >Save</button>
             </div>
               }
