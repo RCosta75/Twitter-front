@@ -16,7 +16,7 @@ function SignUp() {
 
   // appel route pour crée un user
   const handleRegister = () => {
-    fetch("https://twitter-back-gamma.vercel.app//users/signup", {
+    fetch("https://twitter-back-gamma.vercel.app/users/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

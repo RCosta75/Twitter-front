@@ -13,7 +13,7 @@ function DmUser(props) {
     const user = useSelector((state) => state.user.value);
 
     useEffect(() => {
-        fetch(`https://twitter-back-gamma.vercel.app//messages/getOne/${user.id}/${props._id}`)
+        fetch(`https://twitter-back-gamma.vercel.app/messages/getOne/${user.id}/${props._id}`)
           .then((response) => response.json())
           .then((data) => {
             setContent(data)

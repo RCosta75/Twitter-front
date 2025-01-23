@@ -13,7 +13,7 @@ function LastBookmarks() {
 
   // affichage tweet avec reducer true or false re-render a chaque tweet
   useEffect(() => {
-    fetch(`https://twitter-back-gamma.vercel.app//users/bookmarked/${user.token}`)
+    fetch(`https://twitter-back-gamma.vercel.app/users/bookmarked/${user.token}`)
       .then((response) => response.json())
       .then((data) => {
         if(data.result){

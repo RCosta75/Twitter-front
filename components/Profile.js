@@ -70,7 +70,7 @@ export default function Profile(props) {
   // ASYNCRONIE NECESSITE 2 CLIQUE POUR RERENDER 
   // met a jour les donnée du profil selon userProfile recu de router.push() 
   useEffect(() => {
-    fetch(`https://twitter-back-gamma.vercel.app//users/get/${userProfile.username ? userProfile.username : currentUser.username}`)
+    fetch(`https://twitter-back-gamma.vercel.app/users/get/${userProfile.username ? userProfile.username : currentUser.username}`)
     .then((response) => response.json())
     .then((users) => {
         setIsFollow(users.user?.followers),
@@ -83,7 +83,7 @@ export default function Profile(props) {
 
   // route follow
   const handleFollow = () => {
-        fetch(`https://twitter-back-gamma.vercel.app//users/follow`, {
+        fetch(`https://twitter-back-gamma.vercel.app/users/follow`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -97,7 +97,7 @@ export default function Profile(props) {
 
   // route changer bio
   const handleBio = () => {
-    fetch(`https://twitter-back-gamma.vercel.app//users/bio`, {
+    fetch(`https://twitter-back-gamma.vercel.app/users/bio`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -113,7 +113,7 @@ export default function Profile(props) {
 // route pour changer fistname 
   const handleFirstname = () => {
     if(firstNameData.length > 0){
-      fetch(`https://twitter-back-gamma.vercel.app//users/firstname`, {
+      fetch(`https://twitter-back-gamma.vercel.app/users/firstname`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

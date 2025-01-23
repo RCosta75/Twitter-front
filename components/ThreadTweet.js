@@ -102,7 +102,7 @@ function ThreadTweet(props) {
 
   // fonction pour les retweet
   const handleRetweet = () => {
-    fetch(`https://twitter-back-gamma.vercel.app//tweets/retweet`, {
+    fetch(`https://twitter-back-gamma.vercel.app/tweets/retweet`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -117,7 +117,7 @@ function ThreadTweet(props) {
 
   // route pour les bookmarks
   const handleBookmarks = () => {
-    fetch(`https://twitter-back-gamma.vercel.app//tweets/bookmarks`, {
+    fetch(`https://twitter-back-gamma.vercel.app/tweets/bookmarks`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -131,7 +131,7 @@ function ThreadTweet(props) {
 
   // fonction pour gerer les likes
   const handleLikes = () => {
-    fetch(`https://twitter-back-gamma.vercel.app//tweets/update`, {
+    fetch(`https://twitter-back-gamma.vercel.app/tweets/update`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -157,7 +157,7 @@ function ThreadTweet(props) {
   let test = props.tweetData?.comments;
 
   const handleClick = (id) => {
-    fetch(`https://twitter-back-gamma.vercel.app//tweets/comment/`, {
+    fetch(`https://twitter-back-gamma.vercel.app/tweets/comment/`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

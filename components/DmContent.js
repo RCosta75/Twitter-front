@@ -8,7 +8,7 @@ function DmContent(props) {
 
     useEffect(() => {
         if(props.authorId !== user.id){
-            fetch(`https://twitter-back-gamma.vercel.app//messages/read/`, {
+            fetch(`https://twitter-back-gamma.vercel.app/messages/read/`, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({

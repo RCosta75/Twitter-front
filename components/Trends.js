@@ -21,7 +21,7 @@ function Trends() {
 
 // affichage des hashtags
   useEffect(() => {
-    fetch("https://twitter-back-gamma.vercel.app//hashtags/display")
+    fetch("https://twitter-back-gamma.vercel.app/hashtags/display")
       .then((response) => response.json())
       .then((data) => {
         setHashtagsComments(data.hashtag)

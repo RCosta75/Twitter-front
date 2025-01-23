@@ -25,7 +25,7 @@ function Tweet(props) {
  const handleLikes = () => {
   const data = props.replyTo ? { idComment: props._id ,idUser: user.id } : { idTweet: props._id,idUser: user.id };
 
-  fetch(`https://twitter-back-gamma.vercel.app//tweets/update`, {
+  fetch(`https://twitter-back-gamma.vercel.app/tweets/update`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
@@ -94,7 +94,7 @@ function Tweet(props) {
  const handleRetweet = () => {
   const data = props.replyTo ? { idComment: props._id ,idUser: user.id } : { idTweet: props._id ,idUser: user.id};
 
-  fetch(`https://twitter-back-gamma.vercel.app//tweets/retweet`, {
+  fetch(`https://twitter-back-gamma.vercel.app/tweets/retweet`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
@@ -109,7 +109,7 @@ function Tweet(props) {
   const handleBookmarks = () => {
     const data = props.replyTo ? { idComment: props._id ,idUser: user.id } : { idTweet: props._id ,idUser: user.id};
 
-    fetch(`https://twitter-back-gamma.vercel.app//tweets/bookmarks`, {
+    fetch(`https://twitter-back-gamma.vercel.app/tweets/bookmarks`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
@@ -121,7 +121,7 @@ function Tweet(props) {
   // supp #_tweet et tweet onClick sur poubelle
   const deleteOne = () => {
     const data = props.replyTo ? { idComment: props._id } : { idTweet: props._id };
-    fetch(`https://twitter-back-gamma.vercel.app//tweets/deleter`, {
+    fetch(`https://twitter-back-gamma.vercel.app/tweets/deleter`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),  // Utilisation directe de l'objet `data`

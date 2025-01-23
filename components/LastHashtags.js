@@ -23,7 +23,7 @@ function LastHashtag() {
 
   // affichage des hashtags
   useEffect(() => {
-    fetch("https://twitter-back-gamma.vercel.app//hashtags/display")
+    fetch("https://twitter-back-gamma.vercel.app/hashtags/display")
       .then((response) => response.json())
       .then((data) => {
         setHashtags(data.hashtag.sort((a,b) => b.tweet.length - a.tweet.length));
@@ -34,7 +34,7 @@ function LastHashtag() {
     // encodeURI pour gerer caractere speciaux ici #
     // cherche selon valeur du reducer
     fetch(
-      `https://twitter-back-gamma.vercel.app//hashtags/get/${encodeURIComponent(
+      `https://twitter-back-gamma.vercel.app/hashtags/get/${encodeURIComponent(
         hash
       )}`
     )

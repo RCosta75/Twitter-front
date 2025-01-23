@@ -13,7 +13,7 @@ function LastTweet() {
   // ROUTE A REGLER POUR LES LIKE et retweet et bookmark AVEC ID AU LIEU DE TOKEN
   // affichage tweet avec reducer true or false re-render a chaque tweet
   useEffect(() => {
-    fetch("https://twitter-back-gamma.vercel.app//tweets/get")
+    fetch("https://twitter-back-gamma.vercel.app/tweets/get")
       .then((response) => response.json())
       .then((data) => {
         // useState pour contenir les tweet recuper (objet)

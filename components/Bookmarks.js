@@ -10,7 +10,7 @@ function Bookmarks() {
     const dispatch = useDispatch()
 
     const clearBookmarks = () => {
-        fetch(`https://twitter-back-gamma.vercel.app//users/clear`, {
+        fetch(`https://twitter-back-gamma.vercel.app/users/clear`, {
           method: "DELETE",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({

@@ -20,7 +20,7 @@ function LastSearch() {
 
   if(reduxSearch[0] !== "@"){
     useEffect(() => {
-      fetch(`https://twitter-back-gamma.vercel.app//tweets/get/${reduxSearch}`)
+      fetch(`https://twitter-back-gamma.vercel.app/tweets/get/${reduxSearch}`)
         .then((response) => response.json())
         .then((data) => {
           // useState pour contenir les tweet recuper (objet)
@@ -30,7 +30,7 @@ function LastSearch() {
     }, [tweetRex,reduxSearch]);
   }  else {
     useEffect(() => {
-      fetch(`https://twitter-back-gamma.vercel.app//users/getSearch/${reduxSearch.slice(1)}`)
+      fetch(`https://twitter-back-gamma.vercel.app/users/getSearch/${reduxSearch.slice(1)}`)
         .then((response) => response.json())
         .then((data) => {
           // useState pour contenir les tweet recuper (objet)
