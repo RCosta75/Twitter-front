@@ -68,7 +68,6 @@ function Post() {
           type="text"
           placeholder="What is happening?"
           onChange={(e) => setTweetData(e.target.value)}
-          onKeyDown={(e) => e.key === 'Enter' ? handleClick() : null}
           value={tweetData}
         ></textarea>
 

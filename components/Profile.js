@@ -202,7 +202,7 @@ export default function Profile(props) {
 
 
             {!editProfil ? 
-              <p className="pt-3 px-10 text-base text-gray-50 w-full">
+              <p className="pt-3 px-10 text-base whitespace-pre-wrap text-gray-50 w-full">
               {watchUser?.bio } </p> 
               : 
               <div className="flex flex-row">

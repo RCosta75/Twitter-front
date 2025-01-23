@@ -182,16 +182,16 @@ function ProfileMessage(props) {
           width={60}
           height={60}
         />
-        <h3 onClick={() => goToProfilePage()} className="text-2xl cursor-pointer font-bold">{props.firstname}</h3>
-        <span onClick={() => goToProfilePage()} className="text-gray-600 cursor-pointer text-base">@{props.username}</span>
+        <h3 onClick={() => goToProfilePage()} className="text-2xl cursor-pointer whitespace-nowrap font-bold">{props.firstname}</h3>
+        <span onClick={() => goToProfilePage()} className="text-gray-600 whitespace-nowrap cursor-pointer text-base">@{props.username}</span>
         <span className="text-xs text-gray-600">{props.date.slice(0,16)}</span>
       </div>
 
       <div>
-      {props.replyTo?.author?._id && <p className="text-gray-600 text-base pl-24">
+      {props.replyTo?.author?._id && <p className="text-gray-600 whitespace-nowrap text-base pl-24">
         Reply To @{props.replyTo.author.username}
       </p>}
-      <p className="text-gray-200 text-base pl-24">
+      <p className="text-gray-200 text-base whitespace-pre-wrap pl-24">
         {formatMessageWithHashtags(props?.message)}
       </p>
       </div>

@@ -190,13 +190,13 @@ function ThreadTweet(props) {
           />
           <h3
             onClick={() => goToProfilePage()}
-            className="text-2xl hover:underline mb-5 cursor-pointer font-bold"
+            className="text-2xl hover:underline whitespace-nowrap mb-5 cursor-pointer font-bold"
           >
             {props?.tweetData?.author.firstname}
           </h3>
           <span
             onClick={() => goToProfilePage()}
-            className="text-gray-600 mb-4 hover:underline cursor-pointer text-base"
+            className="text-gray-600 mb-4 whitespace-nowrap hover:underline cursor-pointer text-base"
           >
             @{props?.tweetData?.author.username}
           </span>
@@ -206,7 +206,7 @@ function ThreadTweet(props) {
           </span>
         </div>
 
-        <p className="text-gray-400 text-base pl-24">
+        <p className="text-gray-400 text-base pl-24 whitespace-pre-wrap">
           {formatMessageWithHashtags(props?.tweetData?.message)}
         </p>
 

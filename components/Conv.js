@@ -18,29 +18,45 @@ function Conv(props) {
   const dmProfile = { username , firstname, id, profil };
 
   const handleClick = () => {
-    fetch(`https://twitter-back-gamma.vercel.app/messages/add/`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        author: user.id,
-        receive: dmProfile.id,
-        content: message,
-      }),
-    })
-      .then((response) => response.json())
-      .then(() => {
-        setMessage("");
-        dispatch(updateTweet());
-      });
+    if(message.length > 0){
+      fetch(`https://twitter-back-gamma.vercel.app/messages/add/`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          author: user.id,
+          receive: dmProfile.id,
+          content: message,
+        }),
+      })
+        .then((response) => response.json())
+        .then(() => {
+          setMessage("");
+          dispatch(updateTweet());
+        });
+    }
   };
 
+
   useEffect(() => {
-    fetch(`https://twitter-back-gamma.vercel.app/messages/get/${user.id}/${dmProfile.id}`)
-      .then((response) => response.json())
-      .then((data) => {
-        setDmData(data || []);
-      });
-  }, [tweetRex,router.query]);
+    // Fonction pour récupérer les données
+    const fetchData = () => {
+      fetch(`https://twitter-back-gamma.vercel.app/messages/get/${user.id}/${dmProfile.id}`)
+        .then((response) => response.json())
+        .then((data) => {
+          setDmData(data || []);
+        });
+    };
+  
+    // Appel initial
+    fetchData();
+  
+    // Mis en place de l'intervalle
+    const intervalId = setInterval(fetchData, 30000); //60s
+  
+    // Nettoyage de l'intervalle
+    return () => clearInterval(intervalId);
+  }, [tweetRex, router.query]);
+  
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -75,13 +91,13 @@ function Conv(props) {
           onClick={() => goToProfilePage()}
         />
         <p
-          className="cursor-pointer text-gray-50 font-extrabold text-5xl"
+          className="cursor-pointer whitespace-nowrap text-gray-50 font-extrabold text-5xl"
           onClick={() => goToProfilePage()}
         >
           {dmProfile.firstname}
           <span
             onClick={() => goToProfilePage()}
-            className="font-normal cursor-pointer text-gray-500 pl-4 text-2xl"
+            className="font-normal whitespace-nowrap cursor-pointer text-gray-500 pl-4 text-2xl"
           >
             @{dmProfile.username}
           </span>
@@ -94,14 +110,13 @@ function Conv(props) {
         {dm}
       </div>
       <div className="flex flex-col justify-center align-middle items-center w-full ">
-        <div className="flex flex-row justify-around w-10/12 border-4  border-[#243042] focus:border-gray-50">
+        <div className="flex flex-row justify-around w-10/12 border-4  border-[#243042] focus:border-0">
           <textarea
             className="font-inherit no-scrollbar h-full resize-none p-2 w-4/6 text-lg rounded-md outline-0 text-white bg-transparent transition-all duration-200"
             maxLength={280}
             type="text"
-            placeholder="Post your reply"
+            placeholder="Send your Message"
             onChange={(e) => setMessage(e.target.value)}
-            onKeyDown={(e) => (e.key === "Enter" ? handleClick() : null)}
             value={message}
           ></textarea>
           <div className=" w-1/6 flex flex-col items-center pb-5">

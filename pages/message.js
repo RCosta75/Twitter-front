@@ -13,7 +13,7 @@ function Message() {
 
       <div className="w-3/12"><Accueil /></div>
 
-      <div className="h-screen pt-5 w-6/12 bg-[#151d27]">
+      <div className="h-screen overflow-auto thin-scrollbar pt-5 w-6/12 bg-[#151d27]">
         <DirectMessage /><LastDirectMessage />
       </div>
 

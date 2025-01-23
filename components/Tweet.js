@@ -184,18 +184,18 @@ function Tweet(props) {
           width={60}
           height={60}
         />
-        <h3 onClick={() => goToProfilePage()} className="text-2xl hover:underline mb-5 cursor-pointer font-bold">{props.firstname}</h3>
-        <span onClick={() => goToProfilePage()} className="text-gray-600 mb-4 hover:underline cursor-pointer text-base">@{props.username}</span>
+        <h3 onClick={() => goToProfilePage()} className="text-2xl hover:underline whitespace-nowrap mb-5 cursor-pointer font-bold">{props.firstname}</h3>
+        <span onClick={() => goToProfilePage()} className="text-gray-600 mb-4 whitespace-nowrap hover:underline cursor-pointer text-base">@{props.username}</span>
         <span className="text-xs mb-7 text-gray-600"> <span className=" mb-3 text-3xl">.</span> {props.date.slice(0,16)}</span>
       </div>
 
-      <p className="text-gray-400 text-base pl-24 cursor-pointer" onClick={() => goToThreadPage()}>
+      <p className="text-gray-400 text-base pl-24 cursor-pointer whitespace-pre-wrap">
         {formatMessageWithHashtags(props.message)}
       </p>
 
       <div className="flex justify-around p-5">
         <div className="flex items-center gap-3 w-1/5 justify-center cursor-pointer">
-          <FontAwesomeIcon icon={faMessage} style={{ color: "#ffffff" }} />
+          <FontAwesomeIcon icon={faMessage} style={{ color: "#ffffff" }}  onClick={() => goToThreadPage()}/>
           <span onClick={() => goToThreadPage()} className="cursor-pointer">{test?.length}</span>
         </div>
 

@@ -45,8 +45,8 @@ function DmUser(props) {
       <div className="flex flex-col items-start justify-around w-full">
 
         <div className="flex flex-row px-2 w-full h-1/2 items-center ">
-          <p className="text-gray-50 text-2xl font-bold">{props.firstname}</p>
-          <p className="text-gray-600 pl-4 font-normal text-xl">@{props.username}</p>
+          <p className="text-gray-50 text-2xl whitespace-nowrap font-bold w-auto">{props.firstname} </p>
+          <p className="text-gray-600 pl-4 font-normal whitespace-nowrap text-xl">@{props.username}</p>
           <div className="flex justify-end w-full">
           {content.read || content.author !== user.id && <svg className="flex justify-self-end " width="50px" height="50px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 9.5C13.3807 9.5 14.5 10.6193 14.5 12C14.5 13.3807 13.3807 14.5 12 14.5C10.6193 14.5 9.5 13.3807 9.5 12C9.5 10.6193 10.6193 9.5 12 9.5Z" fill="#018FF4"></path> </g></svg>}
           </div>

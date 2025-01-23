@@ -26,12 +26,12 @@ function DmContent(props) {
 
         {props.authorId !== user.id ? 
             <div className='p-2 mx-8 mt-2 max-w-3/5 justify-self-start'>
-                <p className='justify-self-start p-2 bg-gray-500 rounded-xl text-gray-50 font-medium'>{props.content}</p>
+                <p className='justify-self-start p-2 bg-gray-500 rounded-xl whitespace-pre-wrap text-gray-50 font-medium'>{props.content}</p>
                 <p className='text-gray-500'>{props.date.replace(/-/ig, '/').replace('T', ' ').slice(5, 16)}</p>
             </div>
         :
         <div className='p-2 mx-8 mt-2 max-w-3/5 justify-self-end'>
-            <p className='bg-[#018FF4] p-2 rounded-xl justify-self-end text-gray-50 font-medium'>{props.content}</p>
+            <p className='bg-[#018FF4] p-2 rounded-xl justify-self-end whitespace-pre-wrap text-gray-50 font-medium'>{props.content}</p>
             <p className='justify-self-end text-gray-500'>{props.date.replace(/-/ig, '/').replace('T', ' ').slice(5, 16)}</p>
         </div>
         }
