@@ -18,7 +18,7 @@ function Post() {
 
   // creatioon tweet avec token user et useState input et route post :token
   let handleClick = () => {
-    fetch(`http://localhost:3000/tweets/post/${user.token}`, {
+    fetch(`https://twitter-back-gamma.vercel.app//tweets/post/${user.token}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

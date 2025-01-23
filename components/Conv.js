@@ -18,7 +18,7 @@ function Conv(props) {
   const dmProfile = { username , firstname, id, profil };
 
   const handleClick = () => {
-    fetch(`http://localhost:3000/messages/add/`, {
+    fetch(`https://twitter-back-gamma.vercel.app//messages/add/`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -35,7 +35,7 @@ function Conv(props) {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:3000/messages/get/${user.id}/${dmProfile.id}`)
+    fetch(`https://twitter-back-gamma.vercel.app//messages/get/${user.id}/${dmProfile.id}`)
       .then((response) => response.json())
       .then((data) => {
         setDmData(data || []);

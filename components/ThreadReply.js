@@ -97,7 +97,7 @@ function ThreadReply(props) {
 
    // fonction pour les retweet
  const handleRetweet = () => {
-    fetch(`http://localhost:3000/tweets/retweet`, {
+    fetch(`https://twitter-back-gamma.vercel.app//tweets/retweet`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -112,7 +112,7 @@ function ThreadReply(props) {
 
     // route pour les bookmarks
     const handleBookmarks = () => {
-        fetch(`http://localhost:3000/tweets/bookmarks`, {
+        fetch(`https://twitter-back-gamma.vercel.app//tweets/bookmarks`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -126,7 +126,7 @@ function ThreadReply(props) {
 
         // fonction pour gerer les likes
  const handleLikes = () => {
-    fetch(`http://localhost:3000/tweets/update`, {
+    fetch(`https://twitter-back-gamma.vercel.app//tweets/update`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -141,7 +141,7 @@ function ThreadReply(props) {
 
     // supp #_tweet et tweet onClick sur poubelle
     const deleteOne = () => {
-      fetch(`http://localhost:3000/tweets/deleter`, {
+      fetch(`https://twitter-back-gamma.vercel.app//tweets/deleter`, {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

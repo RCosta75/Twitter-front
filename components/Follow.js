@@ -13,7 +13,7 @@ function Follow(props) {
 
   // route follow
   const handleFollow = () => {
-    fetch(`http://localhost:3000/users/follow`, {
+    fetch(`https://twitter-back-gamma.vercel.app//users/follow`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

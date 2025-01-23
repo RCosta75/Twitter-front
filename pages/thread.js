@@ -32,7 +32,7 @@ function Thread() {
 
       if(tweetThread.id){
         useEffect(() => {
-            fetch(`http://localhost:3000/tweets/getone/${tweetThread.id}`)
+            fetch(`https://twitter-back-gamma.vercel.app//tweets/getone/${tweetThread.id}`)
               .then((response) => response.json())
               .then((data) => {
                 // useState pour contenir les tweet recuper (objet)

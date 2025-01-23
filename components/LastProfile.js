@@ -28,7 +28,7 @@ function LastProfile(props) {
 
   // affichage tweet avec reducer true or false re-render a chaque tweet poster
   useEffect(() => {
-    fetch(`http://localhost:3000/users/get/${userProfile.username}`)
+    fetch(`https://twitter-back-gamma.vercel.app//users/get/${userProfile.username}`)
       .then((response) => response.json())
       .then((users) => {
         console.log(users)

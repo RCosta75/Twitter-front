@@ -15,7 +15,7 @@ export default function SignIn() {
 
   const handleConnection = () => {
     // appel route pour se connecter
-    fetch("http://localhost:3000/users/signin", {
+    fetch("https://twitter-back-gamma.vercel.app//users/signin", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

@@ -15,7 +15,7 @@ function LastDirectMessage() {
     const tweetRex = useSelector((state) => state.tweetRex.value);
 
     useEffect(() => {
-        fetch(`http://localhost:3000/users/getdm/${user.id}`)
+        fetch(`https://twitter-back-gamma.vercel.app//users/getdm/${user.id}`)
           .then((response) => response.json())
           .then((data) => {
             // useState pour contenir les tweet recuper (objet)
