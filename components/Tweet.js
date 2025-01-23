@@ -41,7 +41,6 @@ function Tweet(props) {
     // au clique sur button modal ouvre
     const retweetModal = () => {
       if(props.retweet.length > 0){
-        setModalData(retweetMap)
         setIsModalRetweetOpen(true);
       }
 
@@ -49,7 +48,6 @@ function Tweet(props) {
   
     const likeModal = () => {
       if(props.likes.length > 0){
-        setModalData(likeMap)
         setIsModalLikeOpen(true);
       }
     };
@@ -58,7 +56,6 @@ function Tweet(props) {
     const handleCancel = () => {
       setIsModalLikeOpen(false);
       setIsModalRetweetOpen(false);
-      setModalData()
     };
 
 
