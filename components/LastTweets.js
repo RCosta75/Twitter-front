@@ -51,7 +51,7 @@ function LastTweet() {
 
   return (
     <div className="h-2/3">
-      <div className=" max-h-full bg-[#151d27] border-t-4  border-[#0E141B] thin-scrollbar">
+      <div className=" max-h-full bg-[#151d27] border-t-4 border-r-4  border-[#0E141B] box-border thin-scrollbar">
         {tweet}
       </div>
     </div>

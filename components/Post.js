@@ -52,7 +52,7 @@ function Post() {
   const length = tweetData.length
   
   return (
-    <div className=" h-1/3 bg-[#151d27] items-center border-[#0E141B]">
+    <div className=" h-1/3 bg-[#151d27] items-center border-r-4 border-[#0E141B]">
       
       <h2 className="text-gray-200 -mt-2 pl-6 pb-2 text-3xl font-bold justify-start  border-[#0E141B]">Home</h2>
       
