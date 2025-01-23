@@ -184,7 +184,7 @@ function ProfileMessage(props) {
         />
         <h3 onClick={() => goToProfilePage()} className="text-2xl cursor-pointer font-bold">{props.firstname}</h3>
         <span onClick={() => goToProfilePage()} className="text-gray-600 cursor-pointer text-base">@{props.username}</span>
-        <span className="text-xs text-gray-600">{props.date}</span>
+        <span className="text-xs text-gray-600">{props.date.slice(0,16)}</span>
       </div>
 
       <div>

@@ -185,7 +185,7 @@ function ThreadReply(props) {
             />
             <h3 onClick={() => goToProfilePage()} className="text-2xl hover:underline mb-5 cursor-pointer font-bold">{props?.tweetData?.author.firstname}</h3>
             <span onClick={() => goToProfilePage()} className="text-gray-600 mb-4 hover:underline cursor-pointer text-base">@{props?.tweetData?.author.username}</span>
-            <span className="text-xs mb-7 text-gray-600"> <span className=" mb-3 text-3xl">.</span> {props?.tweetData?.date}</span>
+            <span className="text-xs mb-7 text-gray-600"> <span className=" mb-3 text-3xl">.</span> {props?.tweetData?.date.replace("T"," ").slice(0,16).replaceAll('-',"/")}</span>
             
           </div>
 

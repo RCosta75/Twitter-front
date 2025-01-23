@@ -202,7 +202,7 @@ function ThreadTweet(props) {
           </span>
           <span className="text-xs mb-7 text-gray-600">
             {" "}
-            <span className=" mb-3 text-3xl">.</span> {props?.tweetData?.date}
+            <span className=" mb-3 text-3xl">.</span> {props?.tweetData?.date.replace("T"," ").slice(0,16).replace("-","/")}
           </span>
         </div>
 
