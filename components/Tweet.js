@@ -32,11 +32,17 @@ function Tweet(props) {
   }).then(() => {
     // reducer true or false pour re-render du composant
     dispatch(updateTweet());
+    setColorLike(!colorLike)
   });
 };
 
     const [isModalRetweetOpen, setIsModalRetweetOpen] = useState(false);
     const [isModalLikeOpen, setIsModalLikeOpen] = useState(false);
+    const [colorLike, setColorLike] = useState(false)
+    const [colorRt, setColorRt] = useState(false)
+    const [colorBookmark, setColorBookmark] = useState(false)
+
+
   
     // au clique sur button modal ouvre
     const retweetModal = () => {
@@ -61,6 +67,18 @@ function Tweet(props) {
 
     let liked = props?.likes
     let retweeted = props?.retweet
+
+    if(props.isLike){
+      setColorLike(true)
+    }
+
+    if(props.isRetweet){
+      setColorRt(true)
+    }
+
+    if(props.isBookmark){
+      setColorBookmark(true)
+    }
 
     let retweetMap = retweeted.map((e,i) => {
       return (<Follow 
@@ -98,6 +116,7 @@ function Tweet(props) {
   }).then(() => {
     // reducer true or false pour re-render du composant
     dispatch(updateTweet());
+    setColorRt(!colorRt)
   });
 };
 
@@ -112,6 +131,7 @@ function Tweet(props) {
       body: JSON.stringify(data),
     }).then(() => {
       dispatch(updateTweet());
+      setColorBookmark(!colorBookmark)
     });
   };
 
@@ -204,7 +224,7 @@ function Tweet(props) {
             icon={faRetweet}
             style={
               // couleur selon la props isRetweet reçu depuis lastTweets
-              !props.isRetweet
+              !colorRt
                 ? { color: "white", cursor: "pointer" }
                 : { color: "#018FF4", cursor: "pointer" }
             }
@@ -245,7 +265,7 @@ function Tweet(props) {
             icon={faHeart}
             style={
               // couleur selon la props isLike reçu depuis lastTweets
-              !props.isLike
+              !colorLike
                 ? { color: "white", cursor: "pointer" }
                 : { color: "#C71F37", cursor: "pointer" }
             }
@@ -258,7 +278,7 @@ function Tweet(props) {
           <FontAwesomeIcon
             icon={faBookmark}
             style={
-              !props.isBookmark
+              !colorBookmark
                 ? { color: "white", cursor: "pointer" }
                 : { color: "#018FF4", cursor: "pointer" }
             }
