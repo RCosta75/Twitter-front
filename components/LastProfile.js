@@ -31,7 +31,6 @@ function LastProfile(props) {
     fetch(`https://twitter-back-gamma.vercel.app/users/get/${userProfile.username}`)
       .then((response) => response.json())
       .then((users) => {
-        console.log(users)
         setRtData(users.user?.retweets.reverse())
         setTweetData(users.user?.tweets.reverse());
         setLikedData(users.user?.liked.reverse());
@@ -41,7 +40,6 @@ function LastProfile(props) {
 
   let allTweets = []
 
-  console.log(replyData, 'reply')
 
   if(userProfile.username){
   allTweets = tweetData?.concat(rtData)
@@ -63,7 +61,6 @@ function LastProfile(props) {
   let sortedReply = replyAndTweets?.sort((a, b) => triDate(a.date) - triDate(b.date)).reverse()
   
   const tweetAndReply = sortedReply.map((data,i) => {
-    console.log(data,'data')
     if(data.replyTo){
         return (
           <div className="flex flex-row w-full justify-end items-center">

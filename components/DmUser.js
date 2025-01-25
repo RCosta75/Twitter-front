@@ -21,7 +21,6 @@ function DmUser(props) {
       }, []);
 
 
-
           const goToDmPage = (watchId , username , firstname, profil) => {
             router.push({
                 pathname: "/dm",

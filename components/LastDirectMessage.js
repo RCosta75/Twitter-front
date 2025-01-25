@@ -7,7 +7,6 @@ import DmUser from './DmUser';
 function LastDirectMessage() {
 
     const [dmData, setDmData] = useState([])
-    const [lastContent, setLastContent] = useState("")
 
     const router = useRouter();
 

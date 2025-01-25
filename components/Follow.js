@@ -9,7 +9,6 @@ function Follow(props) {
 
   const currentUser = useSelector((state) => state.user.value);
 
-  console.log(props.id, 'props')
 
   // route follow
   const handleFollow = () => {

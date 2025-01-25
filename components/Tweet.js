@@ -21,22 +21,16 @@ function Tweet(props) {
   const user = useSelector((state) => state.user.value);
 
 
-  // fonction pour gerer les likes
- const handleLikes = () => {
-  const data = props.replyTo ? { idComment: props._id ,idUser: user.id } : { idTweet: props._id,idUser: user.id };
-
-  fetch(`https://twitter-back-gamma.vercel.app/tweets/update`, {
-    method: "PUT",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data),
-  }).then(() => {
-    // reducer true or false pour re-render du composant
-    dispatch(updateTweet());
-  });
-};
 
     const [isModalRetweetOpen, setIsModalRetweetOpen] = useState(false);
     const [isModalLikeOpen, setIsModalLikeOpen] = useState(false);
+    
+    const [colorLike, setColorLike] = useState(props.isLike)
+    const [colorRt, setColorRt] = useState(props.isRetweet)
+    const [colorBookmark, setColorBookmark] = useState(props.isBookmark)
+
+    const [rtLength, setRtLength] = useState(props.retweet.length)
+    const [likeLength, setLikeLength] = useState(props.likes.length)
   
     // au clique sur button modal ouvre
     const retweetModal = () => {
@@ -62,6 +56,7 @@ function Tweet(props) {
     let liked = props?.likes
     let retweeted = props?.retweet
 
+
     let retweetMap = retweeted.map((e,i) => {
       return (<Follow 
         key={i}
@@ -75,7 +70,6 @@ function Tweet(props) {
     })
   
     let likeMap = liked.map((e,i) => {
-      console.log(e,'e')
       return (<Follow 
               key={i}
               firstname = {e?.firstname}
@@ -89,7 +83,13 @@ function Tweet(props) {
 
  // fonction pour les retweet
  const handleRetweet = () => {
+  if(props.isRetweet){
+    setRtLength(rtLength -1)
+  } else {
+    setRtLength(rtLength +1)
+  }
   const data = props.replyTo ? { idComment: props._id ,idUser: user.id } : { idTweet: props._id ,idUser: user.id};
+  setColorRt(!colorRt)
 
   fetch(`https://twitter-back-gamma.vercel.app/tweets/retweet`, {
     method: "PUT",
@@ -101,10 +101,31 @@ function Tweet(props) {
   });
 };
 
+  // fonction pour gerer les likes
+ const handleLikes = () => {
+  if(props.isLike){
+    setLikeLength(likeLength -1)
+  } else {
+    setLikeLength(likeLength +1)
+  }
+  setColorLike(!colorLike)
+
+  const data = props.replyTo ? { idComment: props._id ,idUser: user.id } : { idTweet: props._id,idUser: user.id };
+
+  fetch(`https://twitter-back-gamma.vercel.app/tweets/update`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  }).then(() => {
+    // reducer true or false pour re-render du composant
+    dispatch(updateTweet());
+  });
+};
 
   // route pour les bookmarks
   const handleBookmarks = () => {
     const data = props.replyTo ? { idComment: props._id ,idUser: user.id } : { idTweet: props._id ,idUser: user.id};
+    setColorBookmark(!colorBookmark)
 
     fetch(`https://twitter-back-gamma.vercel.app/tweets/bookmarks`, {
       method: "PUT",
@@ -204,13 +225,13 @@ function Tweet(props) {
             icon={faRetweet}
             style={
               // couleur selon la props isRetweet reçu depuis lastTweets
-              !props.isRetweet
+              !colorRt
                 ? { color: "white", cursor: "pointer" }
                 : { color: "#018FF4", cursor: "pointer" }
             }
             onClick={() => handleRetweet()}
           />
-          <span className="cursor-pointer" onClick={() => retweetModal()}> {props.retweet.length} </span>
+          <span className="cursor-pointer" onClick={() => retweetModal()}> {rtLength} </span>
         </div>
 
         <Modal
@@ -245,20 +266,20 @@ function Tweet(props) {
             icon={faHeart}
             style={
               // couleur selon la props isLike reçu depuis lastTweets
-              !props.isLike
+              !colorLike
                 ? { color: "white", cursor: "pointer" }
                 : { color: "#C71F37", cursor: "pointer" }
             }
             onClick={() => handleLikes()}
           />
-          <span className="cursor-pointer" onClick={() => likeModal()}> {props.likes.length} </span>
+          <span className="cursor-pointer" onClick={() => likeModal()}> {likeLength} </span>
         </div>
 
         <div className="flex items-center w-1/5 justify-center">
           <FontAwesomeIcon
             icon={faBookmark}
             style={
-              !props.isBookmark
+              !colorBookmark
                 ? { color: "white", cursor: "pointer" }
                 : { color: "#018FF4", cursor: "pointer" }
             }

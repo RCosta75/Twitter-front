@@ -60,7 +60,7 @@ function Post() {
       <img
           onClick={() => goToProfilePage()}
           src={user.profil ? `/${user.profil}` : "/oeuf.png"}
-          className="rounded-full cursor-pointer  w-24 border-[#0E141B] border-4 h-20"
+          className="rounded-full cursor-pointer w-28 border-[#0E141B] border-4 h-24"
         />
         <textarea
           className="font-inherit no-scrollbar resize-none mt-2 mb-2 p-2 h-24 focus:border-gray-50  w-4/5 text-lg border-2 rounded-md border-[#243042] outline-0 text-white bg-transparent transition-all duration-200"

@@ -86,8 +86,6 @@ function LastSearch() {
     }
   });
 
-  console.log(reduxSearch)
-
   return (
     <div className="h-2/3">
       <div className="h-1/4 mb-4 bg-[#151d27]">
