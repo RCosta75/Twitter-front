@@ -207,7 +207,7 @@ function Tweet(props) {
         />
         <h3 onClick={() => goToProfilePage()} className="text-2xl hover:underline whitespace-nowrap mb-5 cursor-pointer font-bold">{props.firstname}</h3>
         <span onClick={() => goToProfilePage()} className="text-gray-600 mb-4 whitespace-nowrap hover:underline cursor-pointer text-base">@{props.username}</span>
-        <span className="text-xs mb-7 text-gray-600"> <span className=" mb-3 text-3xl">.</span> {props.date.slice(0,16)}</span>
+        <span className="text-xs mb-7 text-gray-600"> <span className=" mb-3 text-3xl">.</span> {props.date.slice(0,16).replace('T' , ' ')}</span>
       </div>
 
       <p className="text-gray-400 text-base pl-24 cursor-pointer whitespace-pre-wrap">

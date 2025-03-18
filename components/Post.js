@@ -14,7 +14,6 @@ function Post() {
 
   const user = useSelector((state) => state.user.value);
 
-  const event = new Date()
 
   // creatioon tweet avec token user et useState input et route post :token
   let handleClick = () => {
@@ -24,7 +23,7 @@ function Post() {
       body: JSON.stringify({
         // message avec useState()
           message: tweetData,
-          date: event.toLocaleString('fr-FR')
+          date: new Date().toISOString()
       }),
   })
       .then((response) => response.json())

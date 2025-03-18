@@ -21,6 +21,8 @@ function LastTweet() {
       });
   }, [tweetRex]);
 
+  console.log(tweetData)
+
   // iteration tableau tweetData pour affichage tweet
   const tweet = tweetData.map((data, i) => {
     if (data.author) {
